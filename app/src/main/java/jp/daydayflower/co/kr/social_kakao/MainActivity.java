@@ -12,6 +12,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.kakao.auth.AuthType;
+import com.kakao.auth.Session;
 import com.kakao.usermgmt.LoginButton;
 
 import java.security.MessageDigest;
@@ -30,10 +32,11 @@ public class MainActivity extends AppCompatActivity {
         btn_custom_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btn_kakao_login.performClick();
-                Log.d("이거찍히나","이거찍히나");
+                Session session = Session.getCurrentSession();
+                session.addCallback(new SessionCallback());
+                session.open(AuthType.KAKAO_LOGIN_ALL, MainActivity.this);
             }
         });
-        btn_kakao_login = (LoginButton) findViewById(R.id.btn_kakao_login);
+
     }
 }

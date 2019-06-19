@@ -11,12 +11,14 @@ import com.kakao.util.exception.KakaoException;
 
 
 public class SessionCallback implements ISessionCallback {
+
+    //로그인에 성고한상태
     @Override
     public void onSessionOpened() {
-        requestMe();
         Log.d("이거찍히나","이거찍히나");
+        requestMe();
     }
-
+   //로그인에 실패
     @Override
     public void onSessionOpenFailed(KakaoException exception) {
         Log.e("SessionCallback :: ", "onSessionOpenFailed : " + exception.getMessage());
@@ -51,12 +53,15 @@ public class SessionCallback implements ISessionCallback {
                 String thumnailPath = userProfile.getThumbnailImagePath();
                 String UUID = userProfile.getUUID();
                 long id = userProfile.getId();
-
+                Log.d("이것이 닉네임", "이것이 닉네임");
                 Log.e("Profile : ", nickname + "");
+                Log.d("이것이 메일주소", "이것이 메일주소");
                 Log.e("Profile : ", email + "");
+                Log.d("이것이 프로필사진", "이것이 프로필사진");
                 Log.e("Profile : ", profileImagePath  + "");
                 Log.e("Profile : ", thumnailPath + "");
                 Log.e("Profile : ", UUID + "");
+                Log.d("이것이 아이디", "이것이 아이디");
                 Log.e("Profile : ", id + "");
             }
 
